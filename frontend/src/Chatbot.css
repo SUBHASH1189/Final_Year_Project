@@ -1,0 +1,114 @@
+/* Chat Bubble Icon */
+.chat-bubble {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #2c3e50;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+.chat-bubble:hover { transform: scale(1.1); }
+.chat-bubble.open { transform: scale(0); }
+
+/* Chat Window */
+.chatbot-window {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  max-width: 90vw;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Chat Header */
+.chatbot-header {
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chatbot-header h3 { margin: 0; font-size: 1.2rem; }
+.close-btn { background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; }
+
+/* Messages Area */
+.chatbot-messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #f4f7f9;
+}
+.message { margin-bottom: 15px; display: flex; flex-direction: column; }
+.message p { padding: 10px 15px; border-radius: 18px; margin: 0; max-width: 90%; line-height: 1.5; word-wrap: break-word; }
+
+/* Bot Message Styling */
+.message.bot p { background-color: #ecf0f1; color: #333; border-bottom-left-radius: 4px; align-self: flex-start; }
+.message.bot p strong { color: #2c3e50; }
+
+/* --- NEW: Typing indicator style --- */
+.message.bot.typing p {
+  color: #7f8c8d;
+  font-style: italic;
+  animation: typing-fade 1.5s infinite;
+}
+@keyframes typing-fade {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* User Message Styling */
+.message.user p { background-color: #3498db; color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
+
+/* --- NEW: Interactive choice buttons --- */
+.choice-options { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; align-self: flex-start; }
+.choice-btn {
+  background-color: white;
+  border: 2px solid #3498db;
+  color: #3498db;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+.choice-btn:hover { background-color: #3498db; color: white; }
+
+/* Location Options Container */
+.location-options { margin-top: 10px; align-self: flex-start; width: 100%; }
+
+/* Buttons and Links */
+.location-btn, .maps-link, .search-btn {
+  color: white; border: none; padding: 10px 15px; border-radius: 8px;
+  cursor: pointer; font-size: 0.9rem; font-weight: bold; text-decoration: none;
+  display: block; text-align: center; transition: background-color 0.2s ease;
+}
+.location-btn { background-color: #27ae60; }
+.location-btn:hover { background-color: #229954; }
+
+/* Manual location input form */
+.location-form { display: flex; margin-top: 10px; }
+.location-input { flex-grow: 1; border: 1px solid #bdc3c7; padding: 10px; border-radius: 8px 0 0 8px; font-size: 0.9rem; }
+.location-input:focus { outline: none; border-color: #3498db; }
+.search-btn { background-color: #e67e22; border-radius: 0 8px 8px 0; width: auto; }
+.search-btn:hover { background-color: #d35400; }
+.maps-link { background-color: #3498db; margin-top: 8px; align-self: flex-start; }
+.maps-link:hover { background-color: #2980b9; }
